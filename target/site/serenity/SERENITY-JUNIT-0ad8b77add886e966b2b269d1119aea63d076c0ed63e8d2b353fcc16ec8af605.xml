@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="io.swagger.petstore.usernpetinfo.UserDataDrivenTesting" skipped="0" tests="100" time="237.39" timestamp="2023-01-10T14:27:02.883Z[Europe/London]"><testcase classname="io.swagger.petstore.usernpetinfo.UserDataDrivenTesting" name="Data driven Test to add multiple bookings to the api"/></testsuite>
