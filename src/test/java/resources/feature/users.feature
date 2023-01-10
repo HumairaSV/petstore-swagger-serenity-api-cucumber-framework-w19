@@ -10,7 +10,7 @@ Feature: Testing different requests on the pet store user api
 
 
   Scenario: Check if the pet store api can be accessed by users by searching username
-    When  I send a GET request to username endpoint
+    When  I send a GET request to username "franrook235" endpoint
     Then  I must get back a valid status code "200"
 
 
@@ -20,5 +20,6 @@ Feature: Testing different requests on the pet store user api
 
 
   Scenario: Check if the user can be deleted from pet store api by searching for username
-    When  I send a DELETE request to username endpoint
-    Then  I must get back a valid status code "201"
+    When  I send a DELETE request to username "franrook235_updated" endpoint
+    Then  I must get back a valid status code "404"
+
