@@ -67,27 +67,30 @@ public class MyStepdefs {
         userSteps.getUserByName(userName).statusCode(404);
     }
 
-    @When("^I send a POST request to user endpoint with the information id \"([^\"]*)\" username \"([^\"]*)\" firstname \"([^\"]*)\" lastname \"([^\"]*)\" email \"([^\"]*)\" password \"([^\"]*)\" phone \"([^\"]*)\" userstatus \"([^\"]*)\"$")
-    public void iSendAPOSTRequestToUserEndpointWithTheInformationIdUsernameFirstnameLastnameEmailPasswordPhoneUserstatus(int id, String arg1, String arg2, String arg3, String arg4, String arg5, String arg6, String arg7){
-        response = userSteps.createUser()
+     @When("^I send a POST request to user endpoint with the information id \"([^\"]*)\" username \"([^\"]*)\" firstname \"([^\"]*)\" lastname \"([^\"]*)\" email \"([^\"]*)\" password \"([^\"]*)\" phone \"([^\"]*)\" userstatus \"([^\"]*)\"$")
+    public void iSendAPOSTRequestToUserEndpointWithTheInformationIdUsernameFirstnameLastnameEmailPasswordPhoneUserstatus(int id, String userName, String firstname, String lastname, String email, String password, String phone, int userstatus){
+        response = userSteps.createUser(id,userName,firstname,lastname,email,password,phone,userstatus);
     }
 
     @Then("^I must get back a valid status code \"([^\"]*)\"$")
-    public void iMustGetBackAValidStatusCode(String arg0){
-
+    public void iMustGetBackAValidStatusCode(int code){
+        response.statusCode(code);
 
     }
 
-    @When("^I send a GET request to username endpoint$")
-    public void iSendAGETRequestToUsernameEndpoint() {
+    @When("^I send a GET request to username \"([^\"]*)\" endpoint$")
+    public void iSendAGETRequestToUsernameEndpoint(String userName2) {
+        response = userSteps.getUserByName(userName2);
     }
 
     @When("^I send a PUT request to username endpoint with updated information id \"([^\"]*)\" username \"([^\"]*)\" firstname \"([^\"]*)\" lastname \"([^\"]*)\" email \"([^\"]*)\" password \"([^\"]*)\" phone \"([^\"]*)\" userstatus \"([^\"]*)\"$")
-    public void iSendAPUTRequestToUsernameEndpointWithUpdatedInformationIdUsernameFirstnameLastnameEmailPasswordPhoneUserstatus(String arg0, String arg1, String arg2, String arg3, String arg4, String arg5, String arg6, String arg7){
-
+    public void iSendAPUTRequestToUsernameEndpointWithUpdatedInformationIdUsernameFirstnameLastnameEmailPasswordPhoneUserstatus(int id, String userName2, String firstname, String lastname, String email, String password, String phone, int userstatus){
+        response = userSteps.updateUser(id,userName,firstname,lastname,email,password,phone,userstatus);
     }
 
-    @When("^I send a DELETE request to username endpoint$")
-    public void iSendADELETERequestToUsernameEndpoint() {
+
+    @When("^I send a DELETE request to username \"([^\"]*)\" endpoint$")
+    public void iSendADELETERequestToUsernameEndpoint(String userName2) {
+    response = userSteps.deleteUserByUsername(userName2);
     }
 }
